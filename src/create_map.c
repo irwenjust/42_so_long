@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:30:08 by likong            #+#    #+#             */
-/*   Updated: 2024/05/30 22:21:04 by likong           ###   ########.fr       */
+/*   Updated: 2024/05/31 09:33:53 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ static int	get_rows(t_game *g, char *f_name)
 	return (rows);
 }
 
-int	init_map(t_game *g, char *f_name)
+void	init_map(t_game *g, char *f_name)
 {
-	int		fd;
-	int		i;
-	char	*res;
+	int				fd;
+	unsigned int	i;
+	char			*res;
 
 	i = 0;
 	g->map = map_new(0, get_rows(g, f_name));

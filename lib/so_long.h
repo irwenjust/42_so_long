@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:12:11 by likong            #+#    #+#             */
-/*   Updated: 2024/05/30 22:13:03 by likong           ###   ########.fr       */
+/*   Updated: 2024/05/31 09:35:30 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,11 @@ typedef struct s_game
 }	t_game;
 
 //initialize part
-int	init_game(char *f_name);
+void	init_game(char *f_name);
 
 //check map
-int	map_check(t_game *game, char *f_name);
+void	init_map(t_game *g, char *f_name);
+//int	map_check(t_game *game, char *f_name);
 
 //tool functions
 void show_error(t_game *game, char *message);

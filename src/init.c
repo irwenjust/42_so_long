@@ -6,16 +6,16 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:00:00 by likong            #+#    #+#             */
-/*   Updated: 2024/05/30 21:02:16 by likong           ###   ########.fr       */
+/*   Updated: 2024/05/31 09:35:17 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long.h"
 
-int	init_game(char *f_name)
+void	init_game(char *f_name)
 {
 	t_game	g;
 
 	ft_bzero(&g, sizeof(t_game));
-	map_check(&g, f_name);
+	init_map(&g, f_name);
 }
