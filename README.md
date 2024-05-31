@@ -12,7 +12,7 @@ Some work plan:
    check shape.                    ✅  
    check bound.                    ✅  
    check element.                  ✅  
-   check path.  
+   check path.                     ✅  
 3) display image to right position  
 4) player control  
    
