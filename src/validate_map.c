@@ -6,11 +6,36 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:56:30 by likong            #+#    #+#             */
-/*   Updated: 2024/05/31 11:48:12 by likong           ###   ########.fr       */
+/*   Updated: 2024/05/31 14:30:27 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long.h"
+
+static bool	check_path(t_game *g)
+{
+	char			**dup;
+	bool			is_valid;
+	unsigned int	i;
+
+	i = 0;
+	dup = ft_calloc(g->map->rows + 1, sizeof(char *));
+	if (!dup)
+		show_error(g, "Allocation error on check_path.");
+	while (i < g->map->rows)
+	{
+		dup[i] = ft_strdup(g->map->cont[i]);
+		if (!dup[i])
+		{
+			del_matrix(dup);
+			show_error(g, "Allocation error on check_path.");
+		}
+		i++;
+	}
+	is_valid = find_path(g->map, g->curr, dup);
+	del_matrix(dup);
+	return (is_valid);
+}
 
 static bool	check_element(t_game *g)
 {
@@ -50,7 +75,7 @@ static bool	check_bound(t_map *map)
 			return (false);
 	i = -1;
 	while (++i < map->cols)
-		if (map->cont[0][i] != WALL || map->cont[map->rows][i] != WALL)
+		if (map->cont[0][i] != WALL || map->cont[map->rows - 1][i] != WALL)
 			return (false);
 	return (true);
 }
@@ -78,7 +103,7 @@ void	validate_map(t_game *g)
 	if (!check_bound(g->map))
 		show_error(g, "Map is not bounded by wall.");
 	if (!check_element(g))
-		show_error(g, "There has invalid element in map file.");
+		show_error(g, "Map elements has some of mistake.");
 	if (!check_path(g))
 		show_error(g, "Cannot find valid path to collect all chest and go exit.");
 }

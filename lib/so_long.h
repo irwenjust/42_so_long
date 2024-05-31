@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:12:11 by likong            #+#    #+#             */
-/*   Updated: 2024/05/31 11:32:33 by likong           ###   ########.fr       */
+/*   Updated: 2024/05/31 13:18:03 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,15 @@ void	init_game(char *f_name);
 
 //check map
 void	init_map(t_game *g, char *f_name);
-//int	map_check(t_game *game, char *f_name);
+void	validate_map(t_game *g);
 
 //tool functions
-void show_error(t_game *game, char *message);
+void 	show_error(t_game *game, char *message);
+void	del_matrix(char **matrix);
+bool	find_path(t_map *map, t_point curr, char **matrix);
+
+//delete part
+void	delete_game(t_game *g);
+
 
 #endif

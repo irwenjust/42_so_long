@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   delete.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 21:00:00 by likong            #+#    #+#             */
-/*   Updated: 2024/05/31 12:54:30 by likong           ###   ########.fr       */
+/*   Created: 2024/05/31 13:16:45 by likong            #+#    #+#             */
+/*   Updated: 2024/05/31 13:22:32 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long.h"
 
-void	init_game(char *f_name)
+void	delete_map(t_map *map)
 {
-	t_game	g;
+	if (!map)
+		return ;
+	del_matrix(map->cont);
+	free(map);
+}
 
-	ft_bzero(&g, sizeof(t_game));
-	init_map(&g, f_name);
-	validate_map(&g);
+void	delete_game(t_game *g)
+{
+	if (!g)
+		return ;
+	if (g->map)
+		delete_map(g->map);
 }

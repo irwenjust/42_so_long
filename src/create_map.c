@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:30:08 by likong            #+#    #+#             */
-/*   Updated: 2024/05/31 11:09:25 by likong           ###   ########.fr       */
+/*   Updated: 2024/05/31 13:15:32 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	init_map(t_game *g, char *f_name)
 		if (!res)
 			show_error(g, "Allocation error on map column.");
 		g->map->cont[i] = ft_strtrim(res, "\n");
-		if (!g->map->cont[i])
+		if (!g->map->cont[i++])
 			show_error(g, "Error on map column when delete new line sign.");
 		free(res);
 	}
