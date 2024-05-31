@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:30:08 by likong            #+#    #+#             */
-/*   Updated: 2024/05/31 09:33:53 by likong           ###   ########.fr       */
+/*   Updated: 2024/05/31 11:09:25 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static int	get_rows(t_game *g, char *f_name)
 	char	*res;
 
 	rows = 0;
+	if (ft_strncmp(f_name + ft_strlen(f_name) - 4, ".ber", 4))
+		show_error(g, "the map file should end in .ber.");
 	fd = open(f_name, O_RDONLY);
 	if (fd < 0)
 		show_error(g, "Cannot open requested file.");

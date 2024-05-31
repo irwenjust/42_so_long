@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 22:09:12 by likong            #+#    #+#             */
-/*   Updated: 2024/05/30 22:12:02 by likong           ###   ########.fr       */
+/*   Updated: 2024/05/31 09:54:32 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 void	show_error(t_game *g, char *message)
 {
 	(void)g;
-	ft_printf("Error: %s\n", message);
+	ft_printf("Error\n%s\n", message);
 	exit(EXIT_FAILURE);
 }

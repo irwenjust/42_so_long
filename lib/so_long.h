@@ -6,24 +6,21 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:12:11 by likong            #+#    #+#             */
-/*   Updated: 2024/05/31 09:35:30 by likong           ###   ########.fr       */
+/*   Updated: 2024/05/31 11:32:33 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <math.h>
+#include "header_enum.h"
 
-#include "../MLX42/include/MLX42/MLX42.h"
-#include "../libft/libft.h"
-#include "../libft/ft_printf/ft_printf.h"
-#include "../libft/get_next_line/get_next_line.h"
+typedef struct s_point
+{
+	unsigned int	x;
+	unsigned int	y;
+}	t_point;
+
 
 typedef struct	s_map
 {
@@ -31,14 +28,16 @@ typedef struct	s_map
 	unsigned int	rows;
 	unsigned int	starts;
 	unsigned int	exits;
+	unsigned int	chests;
 	unsigned int	players;
-	char			*f_name;
 	char			**cont;
 }	t_map;
 
 typedef struct s_game
 {
 	t_map	*map;
+	t_point	curr;
+	t_point	next;
 }	t_game;
 
 //initialize part
@@ -52,5 +51,3 @@ void	init_map(t_game *g, char *f_name);
 void show_error(t_game *game, char *message);
 
 #endif
-
-
