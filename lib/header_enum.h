@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:50:44 by likong            #+#    #+#             */
-/*   Updated: 2024/05/31 11:33:45 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/03 15:43:07 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@
 
 # define ELEMENTS	"01CEP"
 
+# define WIDTH 1600
+# define HEIGHT 900
+
+# define NUM_IMAGE 8
+
 typedef enum s_charactor
 {
 	SPACE = '0',
@@ -35,5 +40,17 @@ typedef enum s_charactor
 	EXIT = 'E',
 	START = 'P'
 }	t_charactor;
+
+typedef enum s_image
+{
+	W1,
+	S1,
+	S2,
+	C1,
+	C2,
+	E1,
+	E2,
+	P1
+}	t_image;
 
 #endif

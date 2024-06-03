@@ -6,19 +6,17 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 15:29:44 by likong            #+#    #+#             */
-/*   Updated: 2024/05/30 22:14:13 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/03 15:43:44 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long.h"
-#define WIDTH 512
-#define HEIGHT 512
 
-static void error(void)
+/*static void error(void)
 {
 	puts(mlx_strerror(mlx_errno));
 	exit(EXIT_FAILURE);
-}
+}*/
 
 static void	check_args(int argc, char **argv)
 {
@@ -37,11 +35,12 @@ static void	check_args(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	mlx_t	*mlx;
+	//mlx_t	*mlx;
 	
 	check_args(argc, argv);
 	init_game(argv[1]);
-	mlx = mlx_init(WIDTH, HEIGHT, "Test", true);
+	/*
+	mlx = mlx_init(WIDTH, HEIGHT, "so_long", true);
 	if (!mlx)
         error();
 	// Try to load the file
@@ -59,10 +58,13 @@ int	main(int argc, char **argv)
         error();
 
 	mlx_loop(mlx);
+	*/
 
 	// Optional, terminate will clean up any leftovers, this is just to demonstrate.
+	/*
 	mlx_delete_image(mlx, img);
 	mlx_delete_texture(texture);
 	mlx_terminate(mlx);
+	*/
 	return (EXIT_SUCCESS);
 }
