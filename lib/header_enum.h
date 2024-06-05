@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:50:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/03 15:43:07 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/05 11:33:54 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define WIDTH 1600
 # define HEIGHT 900
 
-# define NUM_IMAGE 8
+# define NUM_IMAGE 9
 
 typedef enum s_charactor
 {
@@ -50,7 +50,8 @@ typedef enum s_image
 	C2,
 	E1,
 	E2,
-	P1
+	P1,
+	P2
 }	t_image;
 
 #endif

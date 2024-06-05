@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:00:00 by likong            #+#    #+#             */
-/*   Updated: 2024/06/03 14:42:38 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/05 11:26:04 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	load_image(t_game *g)
 	g->tex[E1] = mlx_load_png("./assets/floors/door1.png");
 	g->tex[E2] = mlx_load_png("./assets/floors/door2.png");
 	g->tex[P1] = mlx_load_png("./assets/floors/start.png");
+	g->tex[P2] = mlx_load_png("./assets/player/1.png");
 }
 
 static void	init_graph(t_game *g)

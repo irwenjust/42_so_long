@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:12:11 by likong            #+#    #+#             */
-/*   Updated: 2024/06/03 14:28:31 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/05 09:12:15 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_game
 	t_point			next;
 	t_graph			disp;
 	mlx_texture_t	**tex;
+	unsigned int	tile;
 }	t_game;
 
 //initialize part
