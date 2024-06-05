@@ -13,6 +13,6 @@ Some work plan:
    check bound.                    ✅  
    check element.                  ✅  
    check path.                     ✅  
-3) display image to right position  
+3) display image in right position ✅   
 4) player control  
    
