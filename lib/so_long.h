@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:12:11 by likong            #+#    #+#             */
-/*   Updated: 2024/06/05 09:12:15 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/05 15:46:11 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ void	validate_map(t_game *g);
 
 //draw map
 void	draw_map(t_game *g);
+
+//hook
+void	keyhook(mlx_key_data_t keydata, void *param);
 
 //tool functions
 void 	show_error(t_game *game, char *message);

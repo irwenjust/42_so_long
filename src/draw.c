@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:13:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/05 11:38:51 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/05 15:04:21 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ static void	draw_player(t_game *g, t_point p)
 	mlx_resize_image(img, g->tile, g->tile);
 	if (mlx_image_to_window(g->disp.mlx, img, p.x * g->tile, p.y * g->tile) < 0)
         show_error(g, "cannot draw image to windows.");
+	g->curr.x = p.x;
+	g->curr.y = p.y;
 }
 
 static void	draw_image(t_game *g, t_point p)
