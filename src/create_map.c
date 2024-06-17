@@ -6,11 +6,12 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:30:08 by likong            #+#    #+#             */
-/*   Updated: 2024/05/31 13:15:32 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/13 18:29:28 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long.h"
+#include <errno.h>
 
 static t_map	*map_new(unsigned int cols, unsigned int rows)
 {

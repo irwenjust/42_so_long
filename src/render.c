@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   delete.c                                           :+:      :+:    :+:   */
+/*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 13:16:45 by likong            #+#    #+#             */
-/*   Updated: 2024/06/17 10:05:17 by likong           ###   ########.fr       */
+/*   Created: 2024/06/17 14:34:07 by likong            #+#    #+#             */
+/*   Updated: 2024/06/17 17:21:33 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long.h"
 
-void	delete_teximage(t_game *g)
+void	render_frame(void *param)
 {
-	int	i;
+	t_game *g;
 
-	i = 0;
-	while (i < NUM_IMAGE)
-		mlx_delete_texture(g->tex[i++]);
-	free(g->tex);
-}
-
-void	delete_map(t_map *map)
-{
-	if (!map)
+	g = (t_game *)param;
+	if (!is_valid_move(g))
 		return ;
-	del_matrix(map->cont);
-	free(map);
-}
-
-void	delete_game(t_game *g)
-{
-	if (!g)
-		return ;
-	if (g->tex)
-		delete_teximage(g);
-	if (g->map)
-		delete_map(g->map);
+	//ft_printf("Moves: %u\n", ++(g->moves));
+	if (is(g, g->next) == CHEST)
+		g->coins++;
+	else if (is(g, g->next) == EXIT && g->coins == g->map->chests)
+		quit(g);
+	move_player(g);
+	return ;
 }

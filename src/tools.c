@@ -6,11 +6,21 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 22:09:12 by likong            #+#    #+#             */
-/*   Updated: 2024/06/05 10:47:25 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/17 14:54:42 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long.h"
+
+t_char	is(t_game *g, t_point p)
+{
+	return (g->map->cont[p.y][p.x]);
+}
+
+bool	is_same_point(t_point p1, t_point p2)
+{
+	return (p1.x == p2.x && p1.y == p2.y);
+}
 
 bool	find_path(t_map *map, t_point curr, char **matrix)
 {

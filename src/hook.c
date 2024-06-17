@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:18:35 by likong            #+#    #+#             */
-/*   Updated: 2024/06/05 15:59:09 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/17 17:15:54 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,34 @@ void	keyhook(mlx_key_data_t keydata, void *param)
 
 	g = (t_game *)param;
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
+		quit(g);
+	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
 	{
-		delete_game(g);
-		exit(EXIT_SUCCESS);
+		g->next = (t_point){g->curr.x, g->curr.y - 1};
+		move_player(g);
 	}
+	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
+	{
+		g->next = (t_point){g->curr.x, g->curr.y + 1};
+		move_player(g);
+	}
+	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
+	{
+		g->next = (t_point){g->curr.x - 1, g->curr.y};
+		move_player(g);
+	}
+	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
+	{
+		g->next = (t_point){g->curr.x + 1, g->curr.y};
+		move_player(g);
+	}
+}
+
+void	closehook(void *param)
+{
+	t_game *g;
+
+	g = (t_game *)param;
+	delete_game(g);
+	exit(EXIT_SUCCESS);
 }

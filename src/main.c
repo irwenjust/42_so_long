@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 15:29:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/03 15:43:44 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/17 16:23:57 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 	puts(mlx_strerror(mlx_errno));
 	exit(EXIT_FAILURE);
 }*/
+
+void	quit(t_game *g)
+{
+	delete_game(g);
+	exit(EXIT_SUCCESS);
+}
 
 static void	check_args(int argc, char **argv)
 {
@@ -39,32 +45,5 @@ int	main(int argc, char **argv)
 	
 	check_args(argc, argv);
 	init_game(argv[1]);
-	/*
-	mlx = mlx_init(WIDTH, HEIGHT, "so_long", true);
-	if (!mlx)
-        error();
-	// Try to load the file
-	mlx_texture_t* texture = mlx_load_png("./temp/coin.png");
-	if (!texture)
-        error();
-	
-	// Convert texture to a displayable image
-	mlx_image_t* img = mlx_texture_to_image(mlx, texture);
-	if (!img)
-        error();
-
-	// Display the image
-	if (mlx_image_to_window(mlx, img, 0, 0) < 0)
-        error();
-
-	mlx_loop(mlx);
-	*/
-
-	// Optional, terminate will clean up any leftovers, this is just to demonstrate.
-	/*
-	mlx_delete_image(mlx, img);
-	mlx_delete_texture(texture);
-	mlx_terminate(mlx);
-	*/
 	return (EXIT_SUCCESS);
 }

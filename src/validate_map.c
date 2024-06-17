@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:56:30 by likong            #+#    #+#             */
-/*   Updated: 2024/05/31 14:30:27 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/17 16:40:27 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static bool	check_element(t_game *g)
 		x = -1;
 		while (++x < g->map->cols)
 		{
-			if (g->map->cont[y][x] == START)
+			if (g->map->cont[y][x] == PLAYER)
 			{
 				g->map->players++;
 				g->curr = (t_point){x, y};
