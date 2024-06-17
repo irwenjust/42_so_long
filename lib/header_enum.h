@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:50:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/05 11:33:54 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/17 16:39:53 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@
 
 # define NUM_IMAGE 9
 
-typedef enum s_charactor
+typedef enum s_char
 {
 	SPACE = '0',
 	WALL = '1',
 	CHEST = 'C',
 	EXIT = 'E',
-	START = 'P'
-}	t_charactor;
+	PLAYER = 'P'
+}	t_char;
 
 typedef enum s_image
 {
