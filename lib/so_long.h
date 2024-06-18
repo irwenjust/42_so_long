@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:12:11 by likong            #+#    #+#             */
-/*   Updated: 2024/06/17 16:44:50 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/18 10:35:33 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,6 @@ void	draw_image(t_game *g, t_point p);
 //hook
 void	keyhook(mlx_key_data_t keydata, void *param);
 void	closehook(void *param);
-
-//check and render image during the game
-void	render_frame(void *param);
 
 //move player
 void	move_player(t_game *g);

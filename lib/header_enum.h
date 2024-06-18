@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:50:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/17 16:39:53 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/18 15:05:19 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 # define ELEMENTS	"01CEP"
 
-# define WIDTH 1600
+# define WIDTH 1200
 # define HEIGHT 900
 
 # define NUM_IMAGE 9
