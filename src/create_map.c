@@ -6,12 +6,11 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:30:08 by likong            #+#    #+#             */
-/*   Updated: 2024/06/13 18:29:28 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/18 16:17:23 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long.h"
-#include <errno.h>
 
 static t_map	*map_new(unsigned int cols, unsigned int rows)
 {
@@ -52,6 +51,8 @@ static int	get_rows(t_game *g, char *f_name)
 		free(res);
 	}
 	close(fd);
+	if (rows > 132)
+		show_error(g, "Map is too big for this so_long.");
 	return (rows);
 }
 
@@ -74,8 +75,11 @@ void	init_map(t_game *g, char *f_name)
 		if (!res)
 			show_error(g, "Allocation error on map column.");
 		g->map->cont[i] = ft_strtrim(res, "\n");
-		if (!g->map->cont[i++])
+		if (!g->map->cont[i])
 			show_error(g, "Error on map column when delete new line sign.");
+		else if (ft_strlen(g->map->cont[i]) > 99)
+			show_error(g, "Map is too big for this so_long.");
+		i++;
 		free(res);
 	}
 	close(fd);

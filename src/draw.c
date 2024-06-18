@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:13:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/17 16:44:31 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/18 08:22:39 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@ void	draw_image(t_game *g, t_point p)
 
 	if (g->map->cont[p.y][p.x] == WALL)
 		img = mlx_texture_to_image(g->disp.mlx, g->tex[W1]);
-	else if (g->map->cont[p.y][p.x] == CHEST && g->moves == 0)
+	else if (g->map->cont[p.y][p.x] == CHEST)
 		img = mlx_texture_to_image(g->disp.mlx, g->tex[S1]);
 	else if (g->map->cont[p.y][p.x] == EXIT)
 		img = mlx_texture_to_image(g->disp.mlx, g->tex[E1]);
 	else if (g->map->cont[p.y][p.x] == SPACE)
 		img = mlx_texture_to_image(g->disp.mlx, g->tex[S1]);
-	else if (g->map->cont[p.y][p.x] == PLAYER && g->moves == 0)
+	else if (g->map->cont[p.y][p.x] == PLAYER)
 		img = mlx_texture_to_image(g->disp.mlx, g->tex[P1]);
 	if (!img)
 		show_error(g, "cannot draw the image.");

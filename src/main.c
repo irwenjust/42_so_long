@@ -6,17 +6,11 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 15:29:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/17 16:23:57 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/18 14:19:08 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long.h"
-
-/*static void error(void)
-{
-	puts(mlx_strerror(mlx_errno));
-	exit(EXIT_FAILURE);
-}*/
 
 void	quit(t_game *g)
 {

@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 22:09:12 by likong            #+#    #+#             */
-/*   Updated: 2024/06/17 14:54:42 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/18 16:13:14 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,6 @@ bool	find_path(t_map *map, t_point curr, char **matrix)
 	find_path(map, (t_point){curr.x, curr.y + 1}, matrix);
 	find_path(map, (t_point){curr.x, curr.y - 1}, matrix);
 	return (chests == map->chests && find_exit);
-}
-
-void	del_matrix(char **matrix)
-{
-	size_t	i;
-
-	i = 0;
-	if (!matrix)
-		return ;
-	while (matrix[i])
-		free(matrix[i++]);
-	free(matrix);
 }
 
 void	show_error(t_game *g, char *message)
