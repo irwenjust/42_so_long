@@ -14,5 +14,5 @@ Some work plan:
    check element.                  ✅  
    check path.                     ✅  
 3) display image in right position ✅   
-4) player control  
+4) player control                  ✅  
    
