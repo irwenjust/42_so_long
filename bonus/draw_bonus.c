@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   draw_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:13:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 13:18:33 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/19 14:19:00 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/so_long.h"
+#include "../lib/so_long_bonus.h"
 
 static void	check_tile(t_game *g)
 {
@@ -67,6 +67,8 @@ void	draw_image(t_game *g, t_point p)
 		img = mlx_texture_to_image(g->disp.mlx, g->tex[P1]);
 	else if (g->map->cont[p.y][p.x] == PLAYER && is_same_point(g->next, g->exit))
 		img = mlx_texture_to_image(g->disp.mlx, g->tex[E1]);
+	else if (g->map->cont[p.y][p.x] == ENEMY)
+		img = mlx_texture_to_image(g->disp.mlx, g->tex[D1]);
 	if (!img)
 		show_error(g, "cannot draw the image.");
 	mlx_resize_image(img, g->tile, g->tile);

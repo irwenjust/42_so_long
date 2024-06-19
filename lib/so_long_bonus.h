@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 18:12:11 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 12:33:59 by likong           ###   ########.fr       */
+/*   Created: 2024/06/19 10:02:04 by likong            #+#    #+#             */
+/*   Updated: 2024/06/19 14:48:41 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
-#include "header_enum.h"
+#include "header_enum_bonus.h"
 
 typedef struct s_point
 {
@@ -52,6 +52,7 @@ typedef struct s_game
 	unsigned int	tile;
 	unsigned int	moves;
 	unsigned int	coins;
+	char			*info;
 }	t_game;
 
 //initialize part
@@ -70,6 +71,9 @@ void	draw_image(t_game *g, t_point p);
 //hook
 void	keyhook(mlx_key_data_t keydata, void *param);
 void	closehook(void *param);
+
+//update info
+void	update(void *param);
 
 //move player
 void	move_player(t_game *g);

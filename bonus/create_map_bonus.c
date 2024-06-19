@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_map.c                                       :+:      :+:    :+:   */
+/*   create_map_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:30:08 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 09:56:37 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/19 13:29:05 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/so_long.h"
+#include "../lib/so_long_bonus.h"
 
 static t_map	*map_new(unsigned int cols, unsigned int rows)
 {

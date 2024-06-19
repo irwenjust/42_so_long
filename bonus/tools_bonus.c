@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.c                                            :+:      :+:    :+:   */
+/*   tools_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 22:09:12 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 12:33:27 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/19 14:51:47 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/so_long.h"
+#include "../lib/so_long_bonus.h"
 
 t_char	is(t_game *g, t_point p)
 {
@@ -33,7 +33,7 @@ bool	find_path(t_map *map, t_point curr, char **matrix)
 	static unsigned int	chests = 0;
 	static bool			find_exit = false;
 
-	if (matrix[curr.y][curr.x] == WALL)
+	if (matrix[curr.y][curr.x] == WALL || matrix[curr.y][curr.x] == ENEMY)
 		return (false);
 	else if (matrix[curr.y][curr.x] == CHEST)
 		chests++;

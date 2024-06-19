@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_player.c                                      :+:      :+:    :+:   */
+/*   move_player_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:16:06 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 13:49:39 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/19 14:26:46 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/so_long.h"
+#include "../lib/so_long_bonus.h"
 
 bool	is_valid_move(t_game *g)
 {
@@ -48,6 +48,12 @@ static void	open_exit(t_game *g)
         show_error(g, "cannot draw image to windows.");
 }
 
+static void	face_enemy(t_game *g)
+{
+	ft_printf("You lose.\n");
+	quit(g);
+}
+
 void	move_player(t_game *g)
 {
 	static t_char prev = SPACE;
@@ -55,6 +61,8 @@ void	move_player(t_game *g)
 	if (!is_valid_move(g))
 		return ;
 	g->map->cont[g->curr.y][g->curr.x] = prev;
+	if (is(g, g->next) == ENEMY)
+		face_enemy(g);
 	if (is(g, g->next) != CHEST && is(g, g->next) != EXIT)
 		prev = g->map->cont[g->next.y][g->next.x];
 	else if (is(g, g->next) == CHEST)
@@ -70,7 +78,6 @@ void	move_player(t_game *g)
 		quit(g);
 	}
 	g->map->cont[g->next.y][g->next.x] = PLAYER;
-	ft_printf("Moves: %u, coins: %u\n", ++g->moves, g->coins);
 	draw_image(g, (t_point){g->curr.x, g->curr.y});
 	draw_image(g, (t_point){g->next.x, g->next.y});
 	g->curr = g->next;
