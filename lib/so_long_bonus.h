@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 10:02:04 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 14:48:41 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/20 14:37:57 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ typedef struct s_game
 	t_point			next;
 	t_point			exit;
 	t_graph			disp;
-	mlx_texture_t	**tex;
+	t_state			state;
+	mlx_image_t		**img;
 	unsigned int	tile;
 	unsigned int	moves;
 	unsigned int	coins;
@@ -84,7 +85,7 @@ void 	show_error(t_game *game, char *message);
 bool	find_path(t_map *map, t_point curr, char **matrix);
 t_char	is(t_game *g, t_point p);
 bool	is_same_point(t_point p1, t_point p2);
-void	record_exit(t_game *g, t_point p);
+void	check_tile(t_game *g);
 
 //delete part
 void	delete_game(t_game *g);
@@ -92,5 +93,8 @@ void	del_matrix(char **matrix);
 
 //quit game
 void	quit(t_game *g);
+
+//update part
+void	update_counter(t_game *g);
 
 #endif

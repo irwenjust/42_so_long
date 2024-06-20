@@ -6,80 +6,50 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:13:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 14:19:00 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/20 14:02:17 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long_bonus.h"
 
-static void	check_tile(t_game *g)
+static void	add_image(t_game *g, mlx_image_t *img, t_point p)
 {
-	unsigned int	height;
-	unsigned int	width;
-
-	width = g->disp.width / g->map->cols;
-	height = g->disp.height / g->map->rows;
-	if (width <= height)
-		g->tile = width;
-	else
-		g->tile = height;
+	if (mlx_image_to_window(g->disp.mlx, img, p.x * g->tile, p.y * g->tile) < 0)
+		show_error(g, "cannot draw image to windows.");
 }
 
-static void	draw_player(t_game *g, t_point p)
+static void	add_chest(t_game *g, t_point p)
 {
-	mlx_image_t *img = NULL;
-
-	img = mlx_texture_to_image(g->disp.mlx, g->tex[P2]);
-	if (!img)
-		show_error(g, "cannot draw the player.");
-	mlx_resize_image(img, g->tile, g->tile);
-	if (mlx_image_to_window(g->disp.mlx, img, p.x * g->tile, p.y * g->tile) < 0)
-        show_error(g, "cannot draw image to windows.");
-	g->curr.x = p.x;
-	g->curr.y = p.y;
-}
-
-static void	draw_chest(t_game *g, t_point p)
-{
-	mlx_image_t *img = NULL;
-
-	img = mlx_texture_to_image(g->disp.mlx, g->tex[C1]);
-	if (!img)
-		show_error(g, "cannot draw the player.");
-	mlx_resize_image(img, g->tile, g->tile);
-	if (mlx_image_to_window(g->disp.mlx, img, p.x * g->tile, p.y * g->tile) < 0)
-        show_error(g, "cannot draw image to windows.");
+	add_image(g, g->img[E2], p);
+	add_image(g, g->img[E1], p);
+	g->exit.x = p.x;
+	g->exit.y = p.y;
 }
 
 void	draw_image(t_game *g, t_point p)
 {
-	mlx_image_t *img = NULL;
-
 	if (g->map->cont[p.y][p.x] == WALL)
-		img = mlx_texture_to_image(g->disp.mlx, g->tex[W1]);
+		add_image(g, g->img[W1], p);
 	else if (g->map->cont[p.y][p.x] == CHEST)
-		img = mlx_texture_to_image(g->disp.mlx, g->tex[S1]);
+	{
+		add_image(g, g->img[S1], p);
+		add_image(g, g->img[C1], p);
+	}
 	else if (g->map->cont[p.y][p.x] == EXIT)
-		img = mlx_texture_to_image(g->disp.mlx, g->tex[E1]);
+		add_chest(g, p);
 	else if (g->map->cont[p.y][p.x] == SPACE)
-		img = mlx_texture_to_image(g->disp.mlx, g->tex[S1]);
-	else if (g->map->cont[p.y][p.x] == PLAYER && !is_same_point(g->next, g->exit))
-		img = mlx_texture_to_image(g->disp.mlx, g->tex[P1]);
-	else if (g->map->cont[p.y][p.x] == PLAYER && is_same_point(g->next, g->exit))
-		img = mlx_texture_to_image(g->disp.mlx, g->tex[E1]);
+		add_image(g, g->img[S1], p);
 	else if (g->map->cont[p.y][p.x] == ENEMY)
-		img = mlx_texture_to_image(g->disp.mlx, g->tex[D1]);
-	if (!img)
-		show_error(g, "cannot draw the image.");
-	mlx_resize_image(img, g->tile, g->tile);
-	if (mlx_image_to_window(g->disp.mlx, img, p.x * g->tile, p.y * g->tile) < 0)
-        show_error(g, "cannot draw image to windows.");
-	if (g->map->cont[p.y][p.x] == PLAYER)
-		draw_player(g, p);
-	if (g->map->cont[p.y][p.x] == CHEST)
-		draw_chest(g, p);
-	if (g->map->cont[p.y][p.x] == EXIT)
-		record_exit(g, p);
+	{
+		add_image(g, g->img[S1], p);
+		add_image(g, g->img[D1], p);
+	}
+	else if (g->map->cont[p.y][p.x] == PLAYER)
+	{
+		add_image(g, g->img[P1], p);
+		g->curr.x = p.x;
+		g->curr.y = p.y;
+	}
 }
 
 void	draw_map(t_game *g)
@@ -88,11 +58,11 @@ void	draw_map(t_game *g)
 	unsigned int	y;
 
 	y = -1;
-	check_tile(g);
 	while (++y < g->map->rows)
 	{
 		x = -1;
 		while (++x < g->map->cols)
 			draw_image(g, (t_point){x, y});
 	}
+	add_image(g, g->img[P2], g->curr);
 }

@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:18:35 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 14:49:15 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/20 14:35:40 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,16 @@ void	closehook(void *param)
 	exit(EXIT_SUCCESS);
 }
 
+static void	control_game(t_game *g)
+{
+	update_counter(g);
+}
+
 void	update(void *param)
 {
 	t_game	*g;
 
 	g = (t_game *)param;
-	g->info = "start change";
+	if (g->state == RUNNING)
+		control_game(g);
 }

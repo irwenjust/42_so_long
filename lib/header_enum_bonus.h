@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 10:02:31 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 14:20:50 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/20 16:06:22 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@
 # define ELEMENTS	"01CEPD"
 
 # define BLOCK_SIZE 64
+# define PADDING 16
 
-# define NUM_IMAGE 9
+# define NUM_IMAGE 10
 
 typedef enum s_char
 {
@@ -46,12 +47,21 @@ typedef enum s_image
 	W1,
 	S1,
 	C1,
-	C2,
 	E1,
 	E2,
 	P1,
 	P2,
-	D1
+	D1,
+	U1,
+	T1
 }	t_image;
+
+typedef enum s_state
+{
+	RUNNING,
+	WIN,
+	FAIL,
+	EXITING
+}	t_state;
 
 #endif

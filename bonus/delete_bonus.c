@@ -6,20 +6,20 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 13:16:45 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 13:29:14 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/20 16:48:49 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long_bonus.h"
 
-void	delete_teximage(t_game *g)
+void	delete_image(t_game *g)
 {
 	int	i;
 
 	i = 0;
 	while (i < NUM_IMAGE)
-		mlx_delete_texture(g->tex[i++]);
-	free(g->tex);
+		mlx_delete_image(g->disp.mlx, g->img[i++]);
+	free(g->img);
 }
 
 void	del_matrix(char **matrix)
@@ -46,8 +46,8 @@ void	delete_game(t_game *g)
 {
 	if (!g)
 		return ;
-	if (g->tex)
-		delete_teximage(g);
+	if (g->img)
+		delete_image(g);
 	if (g->map)
 		delete_map(g->map);
 	if (g->disp.mlx)
