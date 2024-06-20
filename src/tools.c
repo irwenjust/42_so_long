@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 22:09:12 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 12:33:27 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/20 08:59:19 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,17 @@ bool	is_same_point(t_point p1, t_point p2)
 	return (p1.x == p2.x && p1.y == p2.y);
 }
 
-void	record_exit(t_game *g, t_point p)
+void	check_tile(t_game *g)
 {
-	g->exit.x = p.x;
-	g->exit.y = p.y;
+	unsigned int	height;
+	unsigned int	width;
+
+	width = g->disp.width / g->map->cols;
+	height = g->disp.height / g->map->rows;
+	if (width <= height)
+		g->tile = width;
+	else
+		g->tile = height;
 }
 
 bool	find_path(t_map *map, t_point curr, char **matrix)

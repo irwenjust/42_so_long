@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:50:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 10:39:49 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/20 09:14:25 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 
 # define BLOCK_SIZE 64
 
-# define NUM_IMAGE 9
+# define NUM_IMAGE 7
 
 typedef enum s_char
 {
@@ -44,9 +44,7 @@ typedef enum s_image
 {
 	W1,
 	S1,
-	S2,
 	C1,
-	C2,
 	E1,
 	E2,
 	P1,
