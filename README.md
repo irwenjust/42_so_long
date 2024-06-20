@@ -19,5 +19,5 @@ Some work plan:
 
 Bonus part:
 1) enemy part.                     ✅
-2) Moves show on the screen.
+2) Moves show on the screen.       ✅  
 3) Animation.
