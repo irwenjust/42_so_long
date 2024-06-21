@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 14:27:54 by likong            #+#    #+#             */
-/*   Updated: 2024/05/30 18:52:08 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/13 14:19:13 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*jump_to_newline(char *content)
 	char	*res;
 	int		len;
 
-	res = ft_strchr(content, '\n');
+	res = str_chr(content, '\n');
 	if (!res)
 	{
 		new_content = NULL;
@@ -60,7 +60,7 @@ char	*get_content(int fd, char *content)
 	content_buf = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!content_buf)
 		return (ft_free(&content));
-	while ((content && bytes > 0 && !ft_strchr(content, '\n')) || !content)
+	while ((content && bytes > 0 && !str_chr(content, '\n')) || !content)
 	{
 		bytes = read(fd, content_buf, BUFFER_SIZE);
 		if (bytes < 0)
