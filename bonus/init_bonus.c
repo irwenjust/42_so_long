@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:00:00 by likong            #+#    #+#             */
-/*   Updated: 2024/06/20 16:13:00 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/25 11:36:20 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,28 @@ static mlx_image_t	*load_image(t_game *g, const char *path)
 	return (img);
 }
 
+static t_sprite	*load_sprite(t_game *g, const char *path, uint32_t rows, uint32_t cols)
+{
+	mlx_texture_t	*tex;
+	t_sprite		*sprite;
+
+	sprite = (t_sprite *)malloc(sizeof(t_sprite));
+	if (!sprite)
+		return (NULL);
+	tex = mlx_load_png(path);
+	if (!tex)
+		show_error(g, "Failed to load sprite.");
+	sprite->img = mlx_texture_to_image(g->disp.mlx, tex);
+	mlx_delete_texture(tex);
+	if (!sprite->img)
+		show_error(g, "Allocation error on read texture.");
+	if (!mlx_resize_image(sprite->img, g->tile * cols, g->tile * rows))
+		show_error(g, "Failed to resize image.");
+	sprite->rows = rows;
+	sprite->cols = cols;
+	return (sprite);
+}
+
 static void	save_image(t_game *g)
 {
 	check_tile(g);
@@ -37,7 +59,6 @@ static void	save_image(t_game *g)
 		show_error(g, "Allocation error on read texture.");
 	g->img[W1] = load_image(g, "./assets/wall/wall.png");
 	g->img[S1] = load_image(g, "./assets/floors/floor1.png");
-	g->img[C1] = load_image(g, "./assets/chest/1.png");
 	g->img[E1] = load_image(g, "./assets/floors/door1.png");
 	g->img[E2] = load_image(g, "./assets/floors/door2.png");
 	g->img[P1] = load_image(g, "./assets/floors/start.png");
@@ -45,6 +66,8 @@ static void	save_image(t_game *g)
 	g->img[D1] = load_image(g, "./assets/enemy/enemy.png");
 	g->img[U1] = NULL;
 	g->img[T1] = NULL;
+	g->img[C1] = mlx_new_image(g->disp.mlx, BLOCK_SIZE, BLOCK_SIZE);
+	g->spr_c = load_sprite(g, "./assets/chest/coin.png", 1, 12);
 }
 
 static void	init_graph(t_game *g)

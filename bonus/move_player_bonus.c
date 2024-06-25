@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:16:06 by likong            #+#    #+#             */
-/*   Updated: 2024/06/20 11:53:49 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/25 16:29:21 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,7 @@ void	move_player(t_game *g)
 	}
 	g->map->cont[g->curr.y][g->curr.x] = SPACE;
 	g->map->cont[g->next.y][g->next.x] = PLAYER;
-	ft_printf("Moves: %u, coins: %u\n", ++g->moves, g->coins);
-	g->img[P2]->instances[0].x = g->next.x * g->tile;
-	g->img[P2]->instances[0].y = g->next.y * g->tile;
+	//ft_printf("Moves: %u, coins: %u\n", ++g->moves, g->coins);
+	g->p_state = MOVING;
 	g->curr = g->next;
 }

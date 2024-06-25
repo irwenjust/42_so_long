@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:00:00 by likong            #+#    #+#             */
-/*   Updated: 2024/06/20 09:50:02 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/25 15:59:24 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	save_image(t_game *g)
 	g->img[P2] = load_image(g, "./assets/player/1.png");
 }
 
-static void	init_graph(t_game *g)
+static void	init_window(t_game *g)
 {
 	g->disp.width = g->map->cols * BLOCK_SIZE;
 	g->disp.height = g->map->rows * BLOCK_SIZE;
@@ -61,7 +61,7 @@ void	init_game(char *f_name)
 	ft_bzero(&g, sizeof(t_game));
 	init_map(&g, f_name);
 	validate_map(&g);
-	init_graph(&g);
+	init_window(&g);
 	save_image(&g);
 	draw_map(&g);
 	mlx_key_hook(g.disp.mlx, keyhook, &g);

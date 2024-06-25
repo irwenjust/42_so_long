@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 10:02:04 by likong            #+#    #+#             */
-/*   Updated: 2024/06/20 14:37:57 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/25 16:06:28 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,13 @@ typedef struct s_graph
 	int		width;
 }	t_graph;
 
+typedef struct s_sprite
+{
+	mlx_image_t	*img;
+	uint32_t	rows;
+	uint32_t	cols;
+}	t_sprite;
+
 
 typedef struct s_game
 {
@@ -49,12 +56,22 @@ typedef struct s_game
 	t_point			exit;
 	t_graph			disp;
 	t_state			state;
+	t_pstate		p_state;
 	mlx_image_t		**img;
+	t_sprite		*spr_c;
 	unsigned int	tile;
 	unsigned int	moves;
 	unsigned int	coins;
 	char			*info;
 }	t_game;
+
+typedef struct	s_test
+{
+	mlx_t		*mlx;
+	mlx_image_t	*img;
+	mlx_image_t	*sprite;
+	uint32_t	count;
+}	t_test;
 
 //initialize part
 void	init_game(char *f_name);
@@ -96,5 +113,12 @@ void	quit(t_game *g);
 
 //update part
 void	update_counter(t_game *g);
+void	update_player(t_game *g);
+
+//pixel part
+int32_t	get_pixel(mlx_image_t *image, uint32_t x, uint32_t y);
+
+//animation part
+void	handle_coin(t_game *g, double time);
 
 #endif

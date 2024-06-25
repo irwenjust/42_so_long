@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:18:35 by likong            #+#    #+#             */
-/*   Updated: 2024/06/20 14:35:40 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/25 16:06:37 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,20 @@ void	closehook(void *param)
 	exit(EXIT_SUCCESS);
 }
 
-static void	control_game(t_game *g)
+static void	control_game(t_game *g, double time)
 {
 	update_counter(g);
+	update_player(g);
+	handle_coin(g, time);
 }
 
 void	update(void *param)
 {
 	t_game	*g;
+	double	time;
 
 	g = (t_game *)param;
+	time = g->disp.mlx->delta_time;
 	if (g->state == RUNNING)
-		control_game(g);
+		control_game(g, time);
 }

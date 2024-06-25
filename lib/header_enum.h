@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:50:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/20 09:14:25 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/25 11:07:16 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdint.h>
 # include <stdio.h>
 # include <string.h>
 # include <math.h>

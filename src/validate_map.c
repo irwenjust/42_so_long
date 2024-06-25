@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:56:30 by likong            #+#    #+#             */
-/*   Updated: 2024/06/18 16:11:49 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/24 15:20:50 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,10 @@ static bool	check_bound(t_map *map)
 
 	i = -1;
 	while (++i < map->rows)
+	{
 		if (map->cont[i][0] != WALL || map->cont[i][map->cols - 1] != WALL)
 			return (false);
+	}
 	i = -1;
 	while (++i < map->cols)
 		if (map->cont[0][i] != WALL || map->cont[map->rows - 1][i] != WALL)

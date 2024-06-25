@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 10:02:31 by likong            #+#    #+#             */
-/*   Updated: 2024/06/20 16:06:22 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/25 15:55:39 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,11 @@ typedef enum s_state
 	FAIL,
 	EXITING
 }	t_state;
+
+typedef enum s_pstate
+{
+	MOVING,
+	STOP
+}	t_pstate;
 
 #endif
