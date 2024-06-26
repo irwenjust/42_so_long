@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:50:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/25 11:07:16 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/26 15:59:27 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
-# include <stdio.h>
-# include <string.h>
-# include <math.h>
 
-#include "../MLX42/include/MLX42/MLX42.h"
-#include "../libft/libft.h"
-#include "../libft/ft_printf/ft_printf.h"
-#include "../libft/get_next_line/get_next_line.h"
+# include "../MLX42/include/MLX42/MLX42.h"
+# include "../libft/libft.h"
+# include "../libft/ft_printf/ft_printf.h"
+# include "../libft/get_next_line/get_next_line.h"
 
 # define ELEMENTS	"01CEP"
 

@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:16:06 by likong            #+#    #+#             */
-/*   Updated: 2024/06/20 10:51:51 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/26 13:54:59 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ bool	is_valid_move(t_game *g)
 		ft_printf("Please don't banging wall.\n");
 		return (false);
 	}
-	else if (is_same_point(g->curr, g->exit) 
+	else if (is_same_point(g->curr, g->exit)
 		&& g->coins != g->map->chests
 		&& is(g, g->next) != WALL)
 	{

@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:00:00 by likong            #+#    #+#             */
-/*   Updated: 2024/06/25 11:36:20 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/26 15:02:24 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,16 @@ static mlx_image_t	*load_image(t_game *g, const char *path)
 	mlx_delete_texture(tex);
 	if (!img)
 		show_error(g, "Allocation error on read texture.");
-	if (!mlx_resize_image(img, g->tile, g->tile))
-		show_error(g, "Failed to resize image.");
+	if (ft_strncmp(path, "./assets/result/win.png", 30)
+		&& ft_strncmp(path, "./assets/result/lose.png", 30))
+	{
+		if (!mlx_resize_image(img, g->tile, g->tile))
+			show_error(g, "Failed to resize image.");
+	}
 	return (img);
 }
 
-static t_sprite	*load_sprite(t_game *g, const char *path, uint32_t rows, uint32_t cols)
+static t_sprite	*load_spr(t_game *g, char *path, uint32_t rows, uint32_t cols)
 {
 	mlx_texture_t	*tex;
 	t_sprite		*sprite;
@@ -61,13 +65,18 @@ static void	save_image(t_game *g)
 	g->img[S1] = load_image(g, "./assets/floors/floor1.png");
 	g->img[E1] = load_image(g, "./assets/floors/door1.png");
 	g->img[E2] = load_image(g, "./assets/floors/door2.png");
-	g->img[P1] = load_image(g, "./assets/floors/start.png");
-	g->img[P2] = load_image(g, "./assets/player/1.png");
+	g->img[PS] = load_image(g, "./assets/floors/start.png");
+	g->img[PR] = load_image(g, "./assets/player/right.png");
+	g->img[PL] = load_image(g, "./assets/player/left.png");
+	g->img[PU] = load_image(g, "./assets/player/up.png");
+	g->img[PD] = load_image(g, "./assets/player/down.png");
 	g->img[D1] = load_image(g, "./assets/enemy/enemy.png");
+	g->img[RW] = load_image(g, "./assets/result/win.png");
+	g->img[RL] = load_image(g, "./assets/result/lose.png");
 	g->img[U1] = NULL;
 	g->img[T1] = NULL;
 	g->img[C1] = mlx_new_image(g->disp.mlx, BLOCK_SIZE, BLOCK_SIZE);
-	g->spr_c = load_sprite(g, "./assets/chest/coin.png", 1, 12);
+	g->spr_c = load_spr(g, "./assets/chest/coin.png", 1, 12);
 }
 
 static void	init_graph(t_game *g)
@@ -95,5 +104,4 @@ void	init_game(char *f_name)
 	mlx_loop_hook(g.disp.mlx, update, &g);
 	mlx_loop(g.disp.mlx);
 	g.state = RUNNING;
-	//mlx_terminate(g.disp.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:00:00 by likong            #+#    #+#             */
-/*   Updated: 2024/06/25 15:59:24 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/26 14:22:26 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void	save_image(t_game *g)
 	g->img[E1] = load_image(g, "./assets/floors/door1.png");
 	g->img[E2] = load_image(g, "./assets/floors/door2.png");
 	g->img[P1] = load_image(g, "./assets/floors/start.png");
-	g->img[P2] = load_image(g, "./assets/player/1.png");
+	g->img[P2] = load_image(g, "./assets/player/right.png");
 }
 
 static void	init_window(t_game *g)
@@ -66,7 +66,5 @@ void	init_game(char *f_name)
 	draw_map(&g);
 	mlx_key_hook(g.disp.mlx, keyhook, &g);
 	mlx_close_hook(g.disp.mlx, closehook, &g);
-	//mlx_loop_hook(g.disp.mlx, &render_frame, &g);
 	mlx_loop(g.disp.mlx);
-	//mlx_terminate(g.disp.mlx);
 }

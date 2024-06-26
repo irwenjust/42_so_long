@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:13:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/20 14:02:17 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/26 11:04:36 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	draw_image(t_game *g, t_point p)
 	}
 	else if (g->map->cont[p.y][p.x] == PLAYER)
 	{
-		add_image(g, g->img[P1], p);
+		add_image(g, g->img[PS], p);
 		g->curr.x = p.x;
 		g->curr.y = p.y;
 	}
@@ -64,5 +64,11 @@ void	draw_map(t_game *g)
 		while (++x < g->map->cols)
 			draw_image(g, (t_point){x, y});
 	}
-	add_image(g, g->img[P2], g->curr);
+	add_image(g, g->img[PU], g->curr);
+	add_image(g, g->img[PD], g->curr);
+	add_image(g, g->img[PL], g->curr);
+	add_image(g, g->img[PR], g->curr);
+	g->img[PU]->instances[0].enabled = false;
+	g->img[PD]->instances[0].enabled = false;
+	g->img[PL]->instances[0].enabled = false;
 }

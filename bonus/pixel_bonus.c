@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pixel.c                                            :+:      :+:    :+:   */
+/*   pixel_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 10:00:24 by likong            #+#    #+#             */
-/*   Updated: 2024/06/25 10:01:12 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/26 14:07:02 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,8 @@ int32_t	get_pixel(mlx_image_t *image, uint32_t x, uint32_t y)
 	if (x > image->width || y > image->height)
 		return (0xFF000000);
 	pixelstart = image->pixels + (y * image->width + x) * sizeof(int32_t);
-	return (get_rgba(*(pixelstart), *(pixelstart + 1), *(pixelstart + 2), *(pixelstart + 3)));
+	return (get_rgba(*(pixelstart),
+			*(pixelstart + 1),
+			*(pixelstart + 2),
+			*(pixelstart + 3)));
 }

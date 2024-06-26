@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:56:30 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 13:29:49 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/26 14:02:25 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,5 @@ void	validate_map(t_game *g)
 	if (!check_element(g))
 		show_error(g, "Map elements has some of mistake.");
 	if (!check_path(g))
-		show_error(g, "Cannot find valid path to collect all chest and go exit.");
+		show_error(g, "Cannot find valid path to collect and go exit.");
 }

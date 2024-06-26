@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 10:02:31 by likong            #+#    #+#             */
-/*   Updated: 2024/06/25 15:55:39 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/26 15:59:28 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,19 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <math.h>
+# include <stdint.h>
 
-#include "../MLX42/include/MLX42/MLX42.h"
-#include "../libft/libft.h"
-#include "../libft/ft_printf/ft_printf.h"
-#include "../libft/get_next_line/get_next_line.h"
+# include "../MLX42/include/MLX42/MLX42.h"
+# include "../libft/libft.h"
+# include "../libft/ft_printf/ft_printf.h"
+# include "../libft/get_next_line/get_next_line.h"
 
 # define ELEMENTS	"01CEPD"
 
 # define BLOCK_SIZE 64
 # define PADDING 16
 
-# define NUM_IMAGE 10
+# define NUM_IMAGE 15
 
 typedef enum s_char
 {
@@ -49,11 +47,16 @@ typedef enum s_image
 	C1,
 	E1,
 	E2,
-	P1,
-	P2,
+	PS,
+	PU,
+	PD,
+	PL,
+	PR,
 	D1,
 	U1,
-	T1
+	T1,
+	RW,
+	RL
 }	t_image;
 
 typedef enum s_state
@@ -66,7 +69,10 @@ typedef enum s_state
 
 typedef enum s_pstate
 {
-	MOVING,
+	GO_UP,
+	GO_DOWN,
+	GO_LEFT,
+	GO_RIGHT,
 	STOP
 }	t_pstate;
 

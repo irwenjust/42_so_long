@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:18:35 by likong            #+#    #+#             */
-/*   Updated: 2024/06/17 17:15:54 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/26 13:53:42 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	keyhook(mlx_key_data_t keydata, void *param)
 
 void	closehook(void *param)
 {
-	t_game *g;
+	t_game	*g;
 
 	g = (t_game *)param;
 	delete_game(g);

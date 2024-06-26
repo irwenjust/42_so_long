@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 15:29:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/18 14:19:08 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/26 13:55:35 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ static void	check_args(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	//mlx_t	*mlx;
-	
 	check_args(argc, argv);
 	init_game(argv[1]);
 	return (EXIT_SUCCESS);

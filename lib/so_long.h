@@ -6,14 +6,14 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:12:11 by likong            #+#    #+#             */
-/*   Updated: 2024/06/20 09:50:30 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/26 13:57:50 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "header_enum.h"
+# include "header_enum.h"
 
 typedef struct s_point
 {
@@ -21,8 +21,7 @@ typedef struct s_point
 	unsigned int	y;
 }	t_point;
 
-
-typedef struct	s_map
+typedef struct s_map
 {
 	unsigned int	cols;
 	unsigned int	rows;
@@ -39,7 +38,6 @@ typedef struct s_graph
 	int		height;
 	int		width;
 }	t_graph;
-
 
 typedef struct s_game
 {
@@ -76,7 +74,7 @@ void	move_player(t_game *g);
 bool	is_valid_move(t_game *g);
 
 //tool functions
-void 	show_error(t_game *game, char *message);
+void	show_error(t_game *game, char *message);
 bool	find_path(t_map *map, t_point curr, char **matrix);
 t_char	is(t_game *g, t_point p);
 bool	is_same_point(t_point p1, t_point p2);
