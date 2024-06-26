@@ -1,15 +1,15 @@
-NAME := so_long
-NAMEBONUS := so_long_bonus
-CFLAGS := -Wextra -Wall -Werror -Wunreachable-code -Ofast
-LIBMLX := ./MLX42
+NAME = so_long
+NAMEBONUS = so_long_bonus
+CFLAGS = -Wextra -Wall -Werror -Wunreachable-code -Ofast
+LIBMLX = ./MLX42
 
-HEADERS := -I ./include -I $(LIBMLX)/include
-LIBS := $(LIBMLX)/build/libmlx42.a -L/Users/likong/.brew/opt/glfw/lib -lglfw -pthread -lm
-SRCS := $(shell find ./src -iname "*.c")
-OBJS := $(SRCS:.c=.o)
+HEADERS = -I ./include -I $(LIBMLX)/include
+LIBS = $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
+SRCS = $(shell find ./src -iname "*.c")
+OBJS = $(SRCS:.c=.o)
 
-BONUS_SRCS := $(shell find ./bonus -iname "*.c")
-BONUS_OBJS := $(BONUS_SRCS:.c=.o)
+BONUS_SRCS = $(shell find ./bonus -iname "*.c")
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 LIBFT = -L./libft -lft
 
