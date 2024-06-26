@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 11:32:05 by likong            #+#    #+#             */
-/*   Updated: 2024/05/02 15:14:05 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/26 18:02:10 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,37 +80,4 @@ char	**ft_split(char const *s, char c)
 	}
 	strs[j] = NULL;
 	return (strs);
-}
-
-#include <stdio.h>
-#include <string.h>
-
-int	main(void)
-{
-	int		i;
-	char	**str;
-
-	i = 0;
-	str = ft_split(NULL, ' ');
-	if (str != NULL)
-	{
-		while (str[i] != NULL)
-		{
-			printf("%s\n", str[i]);
-			i++;
-		}
-	}
-	else
-	{
-		printf("error\n");
-		return (1);
-	}
-	i = 0;
-	while (str[i] != NULL)
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-	return (0);
 }

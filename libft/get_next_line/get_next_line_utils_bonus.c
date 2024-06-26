@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:09:17 by likong            #+#    #+#             */
-/*   Updated: 2024/05/30 18:53:47 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/21 11:18:47 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_free(char **str)
 	return (NULL);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*str_chr(const char *s, int c)
 {
 	size_t	i;
 
