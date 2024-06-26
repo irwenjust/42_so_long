@@ -20,7 +20,7 @@ Some work plan:
 Bonus part:
 1) enemy part.                     ✅
 2) Moves show on the screen.       ✅  
-3) Animation.
+3) Animation.                      ✅  
 
 Some tips:   
 If you can't run this demo, please reinstall MLX42.  
