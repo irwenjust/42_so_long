@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:00:00 by likong            #+#    #+#             */
-/*   Updated: 2024/06/26 15:02:24 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/27 08:21:45 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void	init_game(char *f_name)
 	init_graph(&g);
 	save_image(&g);
 	draw_map(&g);
+	update_counter(&g);
 	mlx_key_hook(g.disp.mlx, keyhook, &g);
 	mlx_close_hook(g.disp.mlx, closehook, &g);
 	mlx_loop_hook(g.disp.mlx, update, &g);

@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:16:06 by likong            #+#    #+#             */
-/*   Updated: 2024/06/26 16:04:05 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/27 08:18:04 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,5 @@ void	move_player(t_game *g)
 	g->map->cont[g->curr.y][g->curr.x] = SPACE;
 	g->map->cont[g->next.y][g->next.x] = PLAYER;
 	g->moves++;
+	update_counter(g);
 }

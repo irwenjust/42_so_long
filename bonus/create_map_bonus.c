@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 20:30:08 by likong            #+#    #+#             */
-/*   Updated: 2024/06/19 13:29:05 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/27 08:29:11 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	get_rows(t_game *g, char *f_name)
 		free(res);
 	}
 	close(fd);
-	if (rows > 132)
+	if (rows > 60)
 		show_error(g, "Map is too big for this so_long.");
 	return (rows);
 }
@@ -77,7 +77,7 @@ void	init_map(t_game *g, char *f_name)
 		g->map->cont[i] = ft_strtrim(res, "\n");
 		if (!g->map->cont[i])
 			show_error(g, "Error on map column when delete new line sign.");
-		else if (ft_strlen(g->map->cont[i]) > 132)
+		else if (ft_strlen(g->map->cont[i]) > 90)
 			show_error(g, "Map is too big for this so_long.");
 		i++;
 		free(res);
