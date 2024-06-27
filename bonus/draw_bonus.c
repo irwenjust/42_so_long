@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 11:13:44 by likong            #+#    #+#             */
-/*   Updated: 2024/06/26 11:04:36 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/27 11:54:23 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,32 @@ static void	add_chest(t_game *g, t_point p)
 	add_image(g, g->img[E1], p);
 	g->exit.x = p.x;
 	g->exit.y = p.y;
+}
+
+void	draw_player(t_game *g, double time)
+{
+	static double	local_time = 0;
+	static int32_t	current = 0;
+	t_image			direct;
+
+	local_time += time;
+	direct = PU;
+	if (g->p_state == GO_UP)
+		direct = PU;
+	else if (g->p_state == GO_DOWN)
+		direct = PD;
+	else if (g->p_state == GO_LEFT)
+		direct = PL;
+	else if (g->p_state == GO_RIGHT)
+		direct = PR;
+	if (current >= 4)
+		current = 0;
+	if (local_time > 0.075)
+	{
+		put_pixel(g->img[direct], g->spr_p->img, current, direct);
+		current++;
+		local_time -= 0.075;
+	}
 }
 
 void	draw_image(t_game *g, t_point p)

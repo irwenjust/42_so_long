@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 13:16:45 by likong            #+#    #+#             */
-/*   Updated: 2024/06/25 11:17:30 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/27 09:10:11 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ void	delete_image(t_game *g)
 	{
 		mlx_delete_image(g->disp.mlx, g->spr_c->img);
 		free(g->spr_c);
+	}
+	if (g->spr_p)
+	{
+		mlx_delete_image(g->disp.mlx, g->spr_p->img);
+		free(g->spr_p);
 	}
 	free(g->img);
 }

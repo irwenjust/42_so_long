@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:00:00 by likong            #+#    #+#             */
-/*   Updated: 2024/06/27 08:21:45 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/27 11:49:59 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,18 @@ static void	save_image(t_game *g)
 	g->img[E1] = load_image(g, "./assets/floors/door1.png");
 	g->img[E2] = load_image(g, "./assets/floors/door2.png");
 	g->img[PS] = load_image(g, "./assets/floors/start.png");
-	g->img[PR] = load_image(g, "./assets/player/right.png");
-	g->img[PL] = load_image(g, "./assets/player/left.png");
-	g->img[PU] = load_image(g, "./assets/player/up.png");
-	g->img[PD] = load_image(g, "./assets/player/down.png");
 	g->img[D1] = load_image(g, "./assets/enemy/enemy.png");
 	g->img[RW] = load_image(g, "./assets/result/win.png");
 	g->img[RL] = load_image(g, "./assets/result/lose.png");
 	g->img[U1] = NULL;
 	g->img[T1] = NULL;
+	g->img[PR] = mlx_new_image(g->disp.mlx, BLOCK_SIZE, BLOCK_SIZE);
+	g->img[PL] = mlx_new_image(g->disp.mlx, BLOCK_SIZE, BLOCK_SIZE);
+	g->img[PU] = mlx_new_image(g->disp.mlx, BLOCK_SIZE, BLOCK_SIZE);
+	g->img[PD] = mlx_new_image(g->disp.mlx, BLOCK_SIZE, BLOCK_SIZE);
 	g->img[C1] = mlx_new_image(g->disp.mlx, BLOCK_SIZE, BLOCK_SIZE);
 	g->spr_c = load_spr(g, "./assets/chest/coin.png", 1, 12);
+	g->spr_p = load_spr(g, "./assets/player/player.png", 4, 4);
 }
 
 static void	init_graph(t_game *g)
@@ -100,6 +101,7 @@ void	init_game(char *f_name)
 	save_image(&g);
 	draw_map(&g);
 	update_counter(&g);
+	put_pixel(g.img[PR], g.spr_p->img, 0, 3);
 	mlx_key_hook(g.disp.mlx, keyhook, &g);
 	mlx_close_hook(g.disp.mlx, closehook, &g);
 	mlx_loop_hook(g.disp.mlx, update, &g);

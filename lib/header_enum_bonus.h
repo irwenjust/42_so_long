@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 10:02:31 by likong            #+#    #+#             */
-/*   Updated: 2024/06/26 15:59:28 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/27 10:08:16 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,16 @@ typedef enum s_char
 
 typedef enum s_image
 {
+	PU,
+	PD,
+	PL,
+	PR,
 	W1,
 	S1,
 	C1,
 	E1,
 	E2,
 	PS,
-	PU,
-	PD,
-	PL,
-	PR,
 	D1,
 	U1,
 	T1,

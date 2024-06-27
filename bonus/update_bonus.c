@@ -6,58 +6,15 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:43:17 by likong            #+#    #+#             */
-/*   Updated: 2024/06/27 08:46:32 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/27 12:42:37 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long_bonus.h"
 
-void	check_player_up_down(t_game *g, t_pstate state)
+void	update_enemy(t_game *g)
 {
-	if (state == GO_UP)
-	{
-		g->next = (t_point){g->curr.x, g->curr.y - 1};
-		g->img[PU]->instances[0].enabled = true;
-		g->img[PD]->instances[0].enabled = false;
-		g->img[PL]->instances[0].enabled = false;
-		g->img[PR]->instances[0].enabled = false;
-		g->p_state = GO_UP;
-		move_player(g);
-	}
-	else if (state == GO_DOWN)
-	{
-		g->next = (t_point){g->curr.x, g->curr.y + 1};
-		g->img[PU]->instances[0].enabled = false;
-		g->img[PD]->instances[0].enabled = true;
-		g->img[PL]->instances[0].enabled = false;
-		g->img[PR]->instances[0].enabled = false;
-		g->p_state = GO_DOWN;
-		move_player(g);
-	}
-}
-
-void	check_player_left_right(t_game *g, t_pstate state)
-{
-	if (state == GO_LEFT)
-	{
-		g->next = (t_point){g->curr.x - 1, g->curr.y};
-		g->img[PU]->instances[0].enabled = false;
-		g->img[PD]->instances[0].enabled = false;
-		g->img[PL]->instances[0].enabled = true;
-		g->img[PR]->instances[0].enabled = false;
-		g->p_state = GO_LEFT;
-		move_player(g);
-	}
-	else if (state == GO_RIGHT)
-	{
-		g->next = (t_point){g->curr.x + 1, g->curr.y};
-		g->img[PU]->instances[0].enabled = false;
-		g->img[PD]->instances[0].enabled = false;
-		g->img[PL]->instances[0].enabled = false;
-		g->img[PR]->instances[0].enabled = true;
-		g->p_state = GO_RIGHT;
-		move_player(g);
-	}
+	(void)g;
 }
 
 void	update_counter(t_game *g)
@@ -83,32 +40,19 @@ void	update_coin(t_game *g, double time)
 {
 	static double	local_time = 0;
 	static int32_t	current = 0;
-	uint32_t		w;
-	uint32_t		h;
 
 	local_time += time;
 	if (current >= 12)
 		current = 0;
 	if (local_time > 0.08)
 	{
-		h = 0;
-		while (h < g->img[C1]->height)
-		{
-			w = 0;
-			while (w < g->img[C1]->width)
-			{
-				mlx_put_pixel(g->img[C1], w, h,
-					get_pixel(g->spr_c->img, current * 64 + w, h));
-				w++;
-			}
-			h++;
-		}
+		put_pixel(g->img[C1], g->spr_c->img, current, 0);
 		current++;
 		local_time -= 0.08;
 	}
 }
 
-void	update_player(t_game *g)
+void	update_player(t_game *g, double time)
 {
 	static unsigned int	dist = 0;
 	t_image				img;
@@ -119,10 +63,10 @@ void	update_player(t_game *g)
 		g->p_state = STOP;
 		g->curr = g->next;
 		dist = 0;
-		return ;
 	}
-	if (g->p_state != STOP && dist < g->tile)
+	else if (g->p_state != STOP && dist < g->tile)
 	{
+		draw_player(g, time);
 		while (img <= PR)
 		{
 			g->img[img]->instances[0].x = (g->curr.x * g->tile)

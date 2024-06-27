@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:18:35 by likong            #+#    #+#             */
-/*   Updated: 2024/06/27 08:17:53 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/27 12:28:31 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,9 @@ void	closehook(void *param)
 
 static void	control_game(t_game *g, double time)
 {
-	update_player(g);
+	update_player(g, time);
 	update_coin(g, time);
+	update_enemy(g);
 }
 
 void	update(void *param)

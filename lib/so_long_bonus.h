@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 10:02:04 by likong            #+#    #+#             */
-/*   Updated: 2024/06/26 13:58:51 by likong           ###   ########.fr       */
+/*   Updated: 2024/06/27 12:39:07 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct s_game
 	t_pstate		p_state;
 	mlx_image_t		**img;
 	t_sprite		*spr_c;
+	t_sprite		*spr_p;
 	unsigned int	tile;
 	unsigned int	moves;
 	unsigned int	coins;
@@ -83,6 +84,7 @@ void	draw_map(t_game *g);
 
 //draw image
 void	draw_image(t_game *g, t_point p);
+void	draw_player(t_game *g, double time);
 
 //hook
 void	keyhook(mlx_key_data_t keydata, void *param);
@@ -109,15 +111,18 @@ void	del_matrix(char **matrix);
 void	quit(t_game *g);
 
 //update part
+void	update_counter(t_game *g);
+void	update_player(t_game *g, double time);
+void	update_enemy(t_game *g);
+
+//check player direction
 void	check_player_left_right(t_game *g, t_pstate state);
 void	check_player_up_down(t_game *g, t_pstate state);
-void	update_counter(t_game *g);
-void	update_player(t_game *g);
 
 //animation part
 void	update_coin(t_game *g, double time);
 
 //pixel part
-int32_t	get_pixel(mlx_image_t *image, uint32_t x, uint32_t y);
+void	put_pixel(mlx_image_t *img, mlx_image_t *spr, uint32_t x, uint32_t y);
 
 #endif
