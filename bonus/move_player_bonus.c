@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 16:16:06 by likong            #+#    #+#             */
-/*   Updated: 2024/06/27 12:32:35 by likong           ###   ########.fr       */
+/*   Updated: 2024/07/01 11:30:23 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,6 @@ static void	check_chest(t_game *g)
 		g->img[E1]->instances[0].enabled = false;
 }
 
-static void	face_enemy(t_game *g)
-{
-	if (!mlx_resize_image(g->img[RL], g->disp.width, g->disp.height))
-		show_error(g, "Failed to resize image.");
-	if (mlx_image_to_window(g->disp.mlx, g->img[RL], 0, 0) < 0)
-		show_error(g, "cannot draw image to windows.");
-	g->state = FAIL;
-}
-
 static void	face_win(t_game *g)
 {
 	if (!mlx_resize_image(g->img[RW], g->disp.width, g->disp.height))
@@ -60,6 +51,15 @@ static void	face_win(t_game *g)
 	if (mlx_image_to_window(g->disp.mlx, g->img[RW], 0, 0) < 0)
 		show_error(g, "cannot draw image to windows.");
 	g->state = WIN;
+}
+
+void	face_enemy(t_game *g)
+{
+	if (!mlx_resize_image(g->img[RL], g->disp.width, g->disp.height))
+		show_error(g, "Failed to resize image.");
+	if (mlx_image_to_window(g->disp.mlx, g->img[RL], 0, 0) < 0)
+		show_error(g, "cannot draw image to windows.");
+	g->state = FAIL;
 }
 
 void	move_player(t_game *g)

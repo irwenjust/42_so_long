@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 10:02:31 by likong            #+#    #+#             */
-/*   Updated: 2024/06/27 10:08:16 by likong           ###   ########.fr       */
+/*   Updated: 2024/07/01 17:27:13 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 # define PADDING 16
 
 # define NUM_IMAGE 15
+
+# define ENEMY_SPEED 0.5
 
 typedef enum s_char
 {
@@ -75,5 +77,13 @@ typedef enum s_pstate
 	GO_RIGHT,
 	STOP
 }	t_pstate;
+
+typedef enum s_estate
+{
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT
+}	t_estate;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 10:02:04 by likong            #+#    #+#             */
-/*   Updated: 2024/06/27 12:39:07 by likong           ###   ########.fr       */
+/*   Updated: 2024/07/01 17:52:53 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_map
 	unsigned int	starts;
 	unsigned int	exits;
 	unsigned int	chests;
+	unsigned int	enemys;
 	unsigned int	players;
 	char			**cont;
 }	t_map;
@@ -52,6 +53,7 @@ typedef struct s_game
 	t_point			curr;
 	t_point			next;
 	t_point			exit;
+	t_point			*enemy_p;
 	t_graph			disp;
 	t_state			state;
 	t_pstate		p_state;
@@ -61,16 +63,9 @@ typedef struct s_game
 	unsigned int	tile;
 	unsigned int	moves;
 	unsigned int	coins;
+	unsigned int	enemys;
 	char			*info;
 }	t_game;
-
-typedef struct s_test
-{
-	mlx_t		*mlx;
-	mlx_image_t	*img;
-	mlx_image_t	*sprite;
-	uint32_t	count;
-}	t_test;
 
 //initialize part
 void	init_game(char *f_name);
@@ -93,8 +88,12 @@ void	closehook(void *param);
 //update info
 void	update(void *param);
 
+//Initialize player
+void	init_player(t_game *g);
+
 //move player
 void	move_player(t_game *g);
+void	face_enemy(t_game *g);
 
 //tool functions
 void	show_error(t_game *game, char *message);
@@ -113,7 +112,7 @@ void	quit(t_game *g);
 //update part
 void	update_counter(t_game *g);
 void	update_player(t_game *g, double time);
-void	update_enemy(t_game *g);
+void	update_enemy(t_game *g, double time);
 
 //check player direction
 void	check_player_left_right(t_game *g, t_pstate state);
@@ -124,5 +123,8 @@ void	update_coin(t_game *g, double time);
 
 //pixel part
 void	put_pixel(mlx_image_t *img, mlx_image_t *spr, uint32_t x, uint32_t y);
+
+//enemy part
+void	check_enemy(t_game *g);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 13:16:45 by likong            #+#    #+#             */
-/*   Updated: 2024/06/27 09:10:11 by likong           ###   ########.fr       */
+/*   Updated: 2024/07/01 17:52:32 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long_bonus.h"
 
-void	delete_image(t_game *g)
+static void	delete_image(t_game *g)
 {
 	int	i;
 
@@ -44,12 +44,19 @@ void	del_matrix(char **matrix)
 	free(matrix);
 }
 
-void	delete_map(t_map *map)
+static void	delete_map(t_map *map)
 {
 	if (!map)
 		return ;
 	del_matrix(map->cont);
 	free(map);
+}
+
+static void	delete_enemy_position(t_point *p)
+{
+	if (!p)
+		return ;
+	free(p);
 }
 
 void	delete_game(t_game *g)
@@ -58,6 +65,8 @@ void	delete_game(t_game *g)
 		return ;
 	if (g->img)
 		delete_image(g);
+	if (g->enemy_p)
+		delete_enemy_position(g->enemy_p);
 	if (g->map)
 		delete_map(g->map);
 	if (g->disp.mlx)

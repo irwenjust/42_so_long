@@ -6,15 +6,22 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 14:43:17 by likong            #+#    #+#             */
-/*   Updated: 2024/06/27 12:42:37 by likong           ###   ########.fr       */
+/*   Updated: 2024/07/01 17:32:19 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/so_long_bonus.h"
 
-void	update_enemy(t_game *g)
+void	update_enemy(t_game *g, double time)
 {
-	(void)g;
+	static double	local_time = 0;
+
+	local_time += time;
+	if (local_time > ENEMY_SPEED)
+	{
+		check_enemy(g);
+		local_time -= ENEMY_SPEED;
+	}
 }
 
 void	update_counter(t_game *g)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_player.c                                     :+:      :+:    :+:   */
+/*   check_player_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 12:32:53 by likong            #+#    #+#             */
-/*   Updated: 2024/06/27 12:33:29 by likong           ###   ########.fr       */
+/*   Updated: 2024/07/01 15:10:09 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,38 @@ void	check_player_left_right(t_game *g, t_pstate state)
 		g->p_state = GO_RIGHT;
 		move_player(g);
 	}
+}
+
+void	draw_player(t_game *g, double time)
+{
+	static double	local_time = 0;
+	static int32_t	current = 0;
+	t_image			direct;
+
+	local_time += time;
+	direct = PU;
+	if (g->p_state == GO_UP)
+		direct = PU;
+	else if (g->p_state == GO_DOWN)
+		direct = PD;
+	else if (g->p_state == GO_LEFT)
+		direct = PL;
+	else if (g->p_state == GO_RIGHT)
+		direct = PR;
+	if (current >= 4)
+		current = 0;
+	if (local_time > 0.075)
+	{
+		put_pixel(g->img[direct], g->spr_p->img, current, direct);
+		current++;
+		local_time -= 0.075;
+	}
+}
+
+void	init_player(t_game *g)
+{
+	put_pixel(g->img[PU], g->spr_p->img, 0, 0);
+	put_pixel(g->img[PD], g->spr_p->img, 0, 1);
+	put_pixel(g->img[PL], g->spr_p->img, 0, 2);
+	put_pixel(g->img[PR], g->spr_p->img, 0, 3);
 }

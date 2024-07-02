@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:00:00 by likong            #+#    #+#             */
-/*   Updated: 2024/06/27 11:49:59 by likong           ###   ########.fr       */
+/*   Updated: 2024/07/01 09:11:48 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	init_game(char *f_name)
 	save_image(&g);
 	draw_map(&g);
 	update_counter(&g);
-	put_pixel(g.img[PR], g.spr_p->img, 0, 3);
+	init_player(&g);
 	mlx_key_hook(g.disp.mlx, keyhook, &g);
 	mlx_close_hook(g.disp.mlx, closehook, &g);
 	mlx_loop_hook(g.disp.mlx, update, &g);

@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 09:56:30 by likong            #+#    #+#             */
-/*   Updated: 2024/06/26 14:02:25 by likong           ###   ########.fr       */
+/*   Updated: 2024/07/01 17:55:28 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,13 @@ static bool	check_element(t_game *g)
 			{
 				g->map->players++;
 				g->curr = (t_point){x, y};
-				g->next = g->curr;
 			}
 			else if (g->map->cont[y][x] == EXIT)
 				g->map->exits++;
 			else if (g->map->cont[y][x] == CHEST)
 				g->map->chests++;
+			else if (g->map->cont[y][x] == ENEMY)
+				g->map->enemys++;
 			else if (!ft_strchr(ELEMENTS, g->map->cont[y][x]))
 				return (false);
 		}
@@ -106,4 +107,5 @@ void	validate_map(t_game *g)
 		show_error(g, "Map elements has some of mistake.");
 	if (!check_path(g))
 		show_error(g, "Cannot find valid path to collect and go exit.");
+	g->next = g->curr;
 }

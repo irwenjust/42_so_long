@@ -6,7 +6,7 @@
 /*   By: likong <likong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:18:35 by likong            #+#    #+#             */
-/*   Updated: 2024/06/27 12:28:31 by likong           ###   ########.fr       */
+/*   Updated: 2024/07/01 10:18:59 by likong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	control_game(t_game *g, double time)
 {
 	update_player(g, time);
 	update_coin(g, time);
-	update_enemy(g);
+	update_enemy(g, time);
 }
 
 void	update(void *param)
