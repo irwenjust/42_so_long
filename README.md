@@ -2,7 +2,7 @@
 First 2D game demo by C.
 
 The grade is 125/100.
-
+https://github.com/irwenjust/42_so_long/issues/1#issue-2391822975
 Some parts of work:  
 Mandatory part:  
 1) read map:  
