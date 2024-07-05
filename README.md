@@ -31,7 +31,7 @@ Bonus part:
 
 ## **Compilation**  
 To compile this project you should run `make` in the terminal.  
-To compile the bonus part just need to run `make bonus`.  
+To compile the bonus part need to run `make bonus`.  
 To run the program needs to follow this:  
 ```sh  
 $ ./so_long path_to_the_map_file.ber  
@@ -40,8 +40,7 @@ For example: `./so_long map/valid/normal.ber`
 If you haven't tried to use cmake && glfw packages before, you should install those following the instructions: https://github.com/codam-coding-college/MLX42  
 (This project only works for Linux, if you want to try it on OS, maybe need to change some of the settings in Makefile. The Windows user probably needs to change a little bit of source code.)   
 
-
-Some tips:   
+## **Some tips**   
 This project could do so many things. It just depends on how much time you want to spend on it. For me, I think the current progress should be enough for the "60 hours" project. I will try more, but not now. :)  
 
 This demo doesn't work for the Windows system. Because for the read file part, Windows will use "\r\n" as the line ending. It is different from Linux and OS (by "\n"). If you want to test it by Windows, please change code "g->map->cont[i] = ft_strtrim(res, "\n")" to "g->map->cont[i] = ft_strtrim(res, "\r\n")". It is from create_map.c. Maybe I will publish the Windows version after finishing all the work.  
